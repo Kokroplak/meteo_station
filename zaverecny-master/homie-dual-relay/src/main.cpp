@@ -18,26 +18,30 @@
 
 // See guide for details on sensor wiring and usage:
 //   https://learn.adafruit.com/dht/overview
-#define INTERVAL 1000
+#define INTERVAL 10
+#define SLEEP_TIME 60
 
 unsigned long lastSent = 0;
 
 DHT dht(DHTPIN, DHTTYPE);
 
 HomieNode temperatureNode("temperature", "temperature");
-
+HomieNode humidityNode("humidity", "humidity");
 void setupHandler() {
 
   temperatureNode.setProperty("unit").send("c");
+  humidityNode.setProperty("unit").send("%");
   }
 
 void loopHandler() {
    if (millis() - lastSent >= INTERVAL * 1000UL || lastSent == 0) {
-     float temperature = dht.readTemperature(true);
+     float temperature = dht.readTemperature();
+     float humidity = dht.readHumidity();
      temperatureNode.setProperty("degrees").send(String(temperature));
-     
+     humidityNode.setProperty("%").send(String(humidity));
      
      lastSent = millis();
+
   }
 }
 
