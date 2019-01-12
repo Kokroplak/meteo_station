@@ -2,9 +2,7 @@ Meteostanice
 
 Jak to bude fungovat...
 
-Cílem bude sběr dat z čidel - vlhkost, teplota do mqtt serveru (pokud možno s použitím protokolu mqtt ssl) Použité prvky:esp8266, Použité technologie: homie framework img VB -ide vsCode, platformio ukázat jak funguje komunikace
-
-posílaní přes json -> zapni/vypni topení
+Cílem bude sběr dat z čidel - vlhkost, teplota do mqtt serveru Použité prvky:esp8266 NodeMcu a esp8266 d1, Použité technologie: homie framework PlatformioIDE vsCode.
 
 Jak funguje mqtt
 
@@ -28,3 +26,4 @@ sudo apt install mosquitto
 
 sudo apt install mosquitto clients -> sub a pub
 
+Ondřej Mikuš
